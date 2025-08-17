@@ -42,6 +42,7 @@ public class UserService {
 
     // Login user
     public LoginResponseDto loginUser(UserDto loginRequest) {
+        System.out.println("Login User");
         return userRepository.findByEmail(loginRequest.getEmail())
                 .filter(user -> passwordEncoder.matches(loginRequest.getPassword(), user.getPassword()))
                 .map(user -> new LoginResponseDto("dummy-token", user.getRole().name(), user.getName()))
