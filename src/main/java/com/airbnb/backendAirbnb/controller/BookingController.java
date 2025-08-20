@@ -7,10 +7,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController             // is used for handling HTTP requests and sending HTTP responses in a RESTful way.
@@ -22,5 +21,15 @@ public class BookingController {
 
     // Create booking
     // http://localhost:8081/api/bookings
+
+
+
+
+    // GET all bookings
+    @GetMapping
+    public ResponseEntity<List<BookingDto>> getAllBookings() {
+        List<BookingDto> bookings = bookingService.getAllBookings();
+        return ResponseEntity.ok(bookings);
+    }
 
 }
