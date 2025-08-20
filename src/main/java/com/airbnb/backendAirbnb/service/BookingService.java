@@ -18,7 +18,7 @@ public class BookingService {
     private final BookingMapper bookingMapper;
 
     public List<BookingDto> getAllBookings() {
-        System.out.println("Main Booking Service");
+        System.out.println("Make-Booking Service");
         return bookingRepository.findAll()
                 .stream()
                 .map(bookingMapper::toDto) // use the instance, not class reference
